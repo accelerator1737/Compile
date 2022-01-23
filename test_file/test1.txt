@@ -1,0 +1,16 @@
+int a = 1 ;
+
+int main(){
+
+    int result ;
+	int N,M ;
+	N = read() ;
+	M = read();
+    
+    if (M >= N)result = M ;
+	else result = N;
+	a = result + 100 ;
+	write(a);
+
+}
+

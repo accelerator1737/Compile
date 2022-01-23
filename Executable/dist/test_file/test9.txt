@@ -1,0 +1,31 @@
+int factor(int);
+int main()
+
+{
+
+   int n,s;
+	
+   n=read();
+   s = factor(n);
+   write(s);
+
+}
+
+
+int factor(int m) {
+  int i,fa;
+  i=0;
+  if(m<=1)
+{
+
+	fa=1;
+     }
+   else{
+       fa=m*factor(m-1);
+       }
+   return fa;
+}  
+
+
+
+

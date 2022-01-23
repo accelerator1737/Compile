@@ -1,0 +1,66 @@
+#include <stdio.h>
+int c = 5,a[2]={0,2,0};
+#define d 5
+int sum2(int,int);
+int sum2(int,int);
+int sum(long);
+const int y = 0;
+int ab[];
+int aa[] = {0,0,0,0};
+int aaa[4] = {0,0,0,0};
+int abb[][3];
+int aab[][2] = {1,2,3};
+int aabb[] = {};
+int main(){
+    int a,fa,m,n,b,k[][6][6] = {1,2,3.5,6,9,5,6};
+    a = k[6];
+    a = sum(1,3);
+    a = 3.5;
+    k[1][6][5] = a;
+    k[0][3][3] = a;
+    cc = a * a;
+    k[9] = 9;
+	if(m<=1){
+	    int a;
+		fa=1;
+    }else{
+    	fa=m*factor(m-1);
+    }
+    if(m < 10)
+		n = 10;
+	if(m < 10)
+		n = 10;
+	else if(a > 0)
+		n = 11;
+	else
+	    n = 12;
+	do{
+		n = 11;
+		int b,c,f[10];
+	}while(a > 10);
+	for(a = 1;a = 2;a = 3){
+		n = 6 + 5 * 3;
+		break;
+		continue;
+	}
+	while(c > 0 && b < 0 || c != 0){
+	    int a;
+		n = a + b;
+	}
+	break;
+	a = 6;
+	a = sum(3);
+	a = 3 * 5 + 6 / 9 % 5 - 3;
+	a = c > 6;
+	a = a!= 6;
+	a = '6';
+}
+int sum2(int a,int a1){
+    return 0;
+}
+int factor(int a){
+	return 2*5+6;
+}
+int sum(int s){
+	return 0;
+}

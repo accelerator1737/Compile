@@ -1,0 +1,535 @@
+_1:
+	MOV AX,5
+	MOV DS:[_c], AX
+
+    _c dw 0
+    _m dw 0
+    _fa dw 0
+    _n dw 0
+    _cc dw 0
+    _b dw 0
+    _a dw 0
+    _y dw 0
+_2:
+	MOV AX,0
+	MOV a[0], AX
+_3:
+	MOV AX,2
+	MOV a[1], AX
+_4:
+	MOV AX,0
+	MOV a[2], AX
+_5:
+	MOV AX,0
+	MOV DS:[_y], AX
+_6:
+	MOV AX,0
+	MOV aa[0], AX
+_7:
+	MOV AX,0
+	MOV aa[1], AX
+_8:
+	MOV AX,0
+	MOV aa[2], AX
+_9:
+	MOV AX,0
+	MOV aa[3], AX
+_10:
+	MOV AX,0
+	MOV aaa[0], AX
+_11:
+	MOV AX,0
+	MOV aaa[1], AX
+_12:
+	MOV AX,0
+	MOV aaa[2], AX
+_13:
+	MOV AX,0
+	MOV aaa[3], AX
+_14:
+	MOV AX,1
+	MOV aab[0], AX
+_15:
+	MOV AX,2
+	MOV aab[1], AX
+_16:
+	MOV AX,3
+	MOV aab[2], AX
+assume cs:code,ds:data,ss:stack,es:extended
+extended segment
+    db 1024 dup (0)
+extended ends
+stack segment
+    db 1024 dup (0)
+stack ends
+data segment
+    _buff_p db 256 dup (24h)
+    _buff_s db 256 dup (0)
+    _msg_p db 0ah,'Output:',0
+    _msg_s db 0ah,'Input:',0
+data ends
+code segment
+start:	mov ax,extended
+    mov es,ax
+    mov ax,stack
+    mov ss,ax
+    mov sp,1024
+    mov bp,sp
+    mov ax,data
+    mov ds,ax
+_18:
+	MOV AX,1
+	MOV k[0], AX
+_19:
+	MOV AX,2
+	MOV k[1], AX
+_20:
+	MOV AX,3.5
+	MOV k[2], AX
+_21:
+	MOV AX,6
+	MOV k[3], AX
+_22:
+	MOV AX,9
+	MOV k[4], AX
+_23:
+	MOV AX,5
+	MOV k[5], AX
+_24:
+	MOV AX,6
+	MOV k[6], AX
+_25:
+	MOV AX,k[216]
+	MOV DS:[_a], AX
+_26:
+	MOV AX,1
+	PUSH AX
+_27:
+	MOV AX,3
+	PUSH AX
+_28:
+	CALL _sum
+	MOV ES:[0],AX
+_29:
+	MOV AX,DS:[42]
+	MOV DS:[_a], AX
+_30:
+	MOV AX,3.5
+	MOV DS:[_a], AX
+_31:
+	MOV AX,DS:[_a]
+	MOV k[77], AX
+_32:
+	MOV AX,DS:[_a]
+	MOV k[21], AX
+_33:
+	MOV AX,DS:[_a]
+	MOV BX,DS:[_a]
+	MUL BX
+	MOV DS:[10],AX
+_34:
+	MOV AX,DS:[10]
+	MOV DS:[_cc], AX
+_35:
+	MOV AX,9
+	MOV k[324], AX
+_36:
+	MOV DX,1
+	MOV AX,DS:[_m]
+	CMP AX,1
+	JNA _36_n
+	MOV DX,0
+_36_n:MOV DS:[44],DX
+_37:
+	MOV AX,DS:[44]
+	CMP AX,0
+	JNE _37_n
+	JMP far ptr _39
+_37_n:NOP
+_38:
+	MOV AX,1
+	MOV DS:[_fa], AX
+_39:
+	JMP far ptr _44
+_40:
+	MOV AX,DS:[_m]
+	SUB AX,1
+	MOV DS:[24],AX;
+_41:
+	MOV AX,DS:[24]
+	PUSH AX
+_42:
+	CALL _factor
+	MOV ES:[2],AX
+_43:
+	MOV AX,DS:[_m]
+	MOV BX,DS:[52]
+	MUL BX
+	MOV DS:[46],AX
+_44:
+	MOV AX,DS:[46]
+	MOV DS:[_fa], AX
+_45:
+	MOV DX,1
+	MOV AX,DS:[_m]
+	CMP AX,10
+	JB _45_n
+	MOV DX,0
+_45_n:MOV DS:[8],DX
+_46:
+	MOV AX,DS:[8]
+	CMP AX,0
+	JNE _46_n
+	JMP far ptr _47
+_46_n:NOP
+_47:
+	MOV AX,10
+	MOV DS:[_n], AX
+_48:
+	MOV DX,1
+	MOV AX,DS:[_m]
+	CMP AX,10
+	JB _48_n
+	MOV DX,0
+_48_n:MOV DS:[40],DX
+_49:
+	MOV AX,DS:[40]
+	CMP AX,0
+	JNE _49_n
+	JMP far ptr _51
+_49_n:NOP
+_50:
+	MOV AX,10
+	MOV DS:[_n], AX
+_51:
+	JMP far ptr _56
+_52:
+	MOV DX,1
+	MOV AX,DS:[_a]
+	CMP AX,0
+	JA _52_n
+	MOV DX,0
+_52_n:MOV DS:[26],DX
+_53:
+	MOV AX,DS:[26]
+	CMP AX,0
+	JNE _53_n
+	JMP far ptr _55
+_53_n:NOP
+_54:
+	MOV AX,11
+	MOV DS:[_n], AX
+_55:
+	JMP far ptr _56
+_56:
+	MOV AX,12
+	MOV DS:[_n], AX
+_57:
+	MOV AX,11
+	MOV DS:[_n], AX
+_58:
+	MOV DX,1
+	MOV AX,DS:[_a]
+	CMP AX,10
+	JA _58_n
+	MOV DX,0
+_58_n:MOV DS:[20],DX
+_59:
+	MOV AX,DS:[20]
+	CMP AX,0
+	JE _59_n
+	JMP far ptr _56
+_59_n:NOP
+_60:
+	MOV AX,1
+	MOV DS:[_a], AX
+_61:
+	MOV AX,2
+	MOV DS:[_a], AX
+_62:
+	MOV AX,a=2
+	CMP AX,0
+	JNE _62_n
+	JMP far ptr _71
+_62_n:NOP
+_63:
+	JMP far ptr _65
+_64:
+	MOV AX,3
+	MOV DS:[_a], AX
+_65:
+	JMP far ptr _60
+_66:
+	MOV AX,5
+	MOV BX,3
+	MUL BX
+	MOV DS:[18],AX
+_67:
+	MOV AX,6
+	ADD AX,DS:[18]
+	MOV DS:[36],AX;
+_68:
+	MOV AX,DS:[36]
+	MOV DS:[_n], AX
+_69:
+	JMP far ptr _71
+_70:
+	JMP far ptr _63
+_71:
+	JMP far ptr _63
+_72:
+	MOV DX,1
+	MOV AX,DS:[_c]
+	CMP AX,0
+	JA _72_n
+	MOV DX,0
+_72_n:MOV DS:[16],DX
+_73:
+	MOV AX,DS:[16]
+	CMP AX,0
+	JNE _73_n
+	JMP far ptr _80
+_73_n:NOP
+_74:
+	MOV DX,1
+	MOV AX,DS:[_b]
+	CMP AX,0
+	JB _74_n
+	MOV DX,0
+_74_n:MOV DS:[4],DX
+_75:
+	MOV AX,DS:[4]
+	CMP AX,0
+	JE _75_n
+	JMP far ptr _77
+_75_n:NOP
+_76:
+	MOV DX,1
+	MOV AX,DS:[_c]
+	CMP AX,0
+	JNE _76_n
+	MOV DX,0
+_76_n:MOV DS:[6],DX
+_77:
+	MOV AX,DS:[6]
+	CMP AX,0
+	JNE _77_n
+	JMP far ptr _80
+_77_n:NOP
+_78:
+	MOV AX,DS:[_a]
+	ADD AX,DS:[_b]
+	MOV DS:[12],AX;
+_79:
+	MOV AX,DS:[12]
+	MOV DS:[_n], AX
+_80:
+	JMP far ptr _71
+_81:
+	MOV AX,6
+	MOV DS:[_a], AX
+_82:
+	MOV AX,3
+	PUSH AX
+_83:
+	CALL _sum
+	MOV ES:[4],AX
+_84:
+	MOV AX,DS:[22]
+	MOV DS:[_a], AX
+_85:
+	MOV AX,3
+	MOV BX,5
+	MUL BX
+	MOV DS:[38],AX
+_86:
+	MOV AX,6
+	MOV DX,0
+	MOV BX,9
+	DIV BX
+	MOV DS:[2],AX
+_87:
+	MOV AX,DS:[2]
+	MOV DX,0
+	MOV BX,5
+	DIV BX
+	MOV DS:[28],DX
+_88:
+	MOV AX,DS:[38]
+	ADD AX,DS:[28]
+	MOV DS:[447],AX;
+_89:
+	MOV AX,DS:[447]
+	SUB AX,3
+	MOV DS:[30],AX;
+_90:
+	MOV AX,DS:[30]
+	MOV DS:[_a], AX
+_91:
+	MOV DX,1
+	MOV AX,DS:[_c]
+	CMP AX,6
+	JA _91_n
+	MOV DX,0
+_91_n:MOV DS:[34],DX
+_92:
+	MOV AX,DS:[34]
+	MOV DS:[_a], AX
+_93:
+	MOV DX,1
+	MOV AX,DS:[_a]
+	CMP AX,6
+	JNE _93_n
+	MOV DX,0
+_93_n:MOV DS:[240],DX
+_94:
+	MOV AX,DS:[240]
+	MOV DS:[_a], AX
+_95:
+	MOV AX,'6'
+	MOV DS:[_a], AX
+QUIT: MOV AH, 4CH
+	int 21h
+_sum2:
+	PUSH BP
+	MOV BP,SP
+	SUB SP,2
+_98:
+	MOV AX,0
+	MOV SP,BP
+	POP BP
+	RET
+_99:
+	MOV SP,BP
+	POP BP
+	RET
+_factor:
+	PUSH BP
+	MOV BP,SP
+	SUB SP,2
+_101:
+	MOV AX,2
+	MOV BX,5
+	MUL BX
+	MOV DS:[14],AX
+_102:
+	MOV AX,DS:[14]
+	ADD AX,6
+	MOV DS:[242],AX;
+_103:
+	MOV AX,DS:[242]
+	MOV SP,BP
+	POP BP
+	RET
+_104:
+	MOV SP,BP
+	POP BP
+	RET
+_sum:
+	PUSH BP
+	MOV BP,SP
+	SUB SP,2
+_106:
+	MOV AX,0
+	MOV SP,BP
+	POP BP
+	RET
+_107:
+	MOV SP,BP
+	POP BP
+	RET
+_read:	push bp
+	mov bp,sp
+	mov bx,offset _msg_s
+	call _print
+	mov bx,offset _buff_s
+	mov di,0
+_r_lp_1:	mov ah,1
+	int 21h
+	cmp al,0dh
+	je _r_brk_1
+	mov ds:[bx+di],al
+	inc di
+	jmp short _r_lp_1
+_r_brk_1:	mov ah,2
+	mov dl,0ah
+	int 21h
+	mov ax,0
+	mov si,0
+	mov cx,10
+_r_lp_2:	mov dl,ds:[bx+si]
+	cmp dl,30h
+	jb _r_brk_2
+	cmp dl,39h
+	ja _r_brk_2
+	sub dl,30h
+	mov ds:[bx+si],dl
+	mul cx
+	mov dl,ds:[bx+si]
+	mov dh,0
+	add ax,dx
+	inc si
+	jmp short _r_lp_2
+_r_brk_2:	mov cx,di
+	mov si,0
+_r_lp_3:	mov byte ptr ds:[bx+si],0
+	loop _r_lp_3
+	mov sp,bp
+	pop bp
+	ret
+
+_write:	push bp
+	mov bp,sp
+	mov bx,offset _msg_p
+	call _print
+	mov ax,ss:[bp+4]
+	mov bx,10
+	mov cx,0
+_w_lp_1:	mov dx,0
+	div bx
+	push dx
+	inc cx
+	cmp ax,0
+	jne _w_lp_1
+	mov di ,offset _buff_p
+_w_lp_2:	pop ax
+	add ax,30h
+	mov ds:[di],al
+	inc di
+	loop _w_lp_2
+	mov dx,offset _buff_p
+	mov ah,09h
+	int 21h
+	mov cx,di
+	sub cx,offset _buff_p
+	mov di,offset _buff_p
+_w_lp_3:	mov al,24h
+	mov ds:[di],al
+	inc di
+	loop _w_lp_3
+	mov ax,di
+	sub ax,offset _buff_p
+	mov sp,bp
+	pop bp
+	ret 2
+_print:	mov si,0
+	mov di,offset _buff_p
+_p_lp_1:	mov al,ds:[bx+si]
+	cmp al,0
+	je _p_brk_1
+	mov ds:[di],al
+	inc si
+	inc di
+	jmp short _p_lp_1
+_p_brk_1:	mov dx,offset _buff_p
+	mov ah,09h
+	int 21h
+	mov cx,si
+	mov di,offset _buff_p
+_p_lp_2:	mov al,24h
+	mov ds:[di],al
+	inc di
+	loop _p_lp_2
+	ret
+code ends
+end start
